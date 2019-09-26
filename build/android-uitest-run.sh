@@ -23,8 +23,8 @@ nohup $ANDROID_HOME/emulator/emulator -avd xamarin_android_emulator -skin 1280x8
 export IsUiAutomationMappingEnabled=true
 
 # build the sample and tests, while the emulator is starting
-msbuild /r /p:Configuration=$BUILDCONFIGURATION $BUILD_SOURCESDIRECTORY/src/SamplesApp/SamplesApp.Droid/SamplesApp.Droid.csproj
-msbuild /r /p:Configuration=$BUILDCONFIGURATION $BUILD_SOURCESDIRECTORY/src/SamplesApp/SamplesApp.UITests/SamplesApp.UITests.csproj
+msbuild /r /p:TargetFramework=monoandroid90 /p:Configuration=$BUILDCONFIGURATION $BUILD_SOURCESDIRECTORY/src/SamplesApp/SamplesApp.Droid/SamplesApp.Droid.csproj
+msbuild /r /p:TargetFramework=monoandroid90 /p:Configuration=$BUILDCONFIGURATION $BUILD_SOURCESDIRECTORY/src/SamplesApp/SamplesApp.UITests/SamplesApp.UITests.csproj
 
 # Wait for the emulator to finish booting
 chmod +x $BUILD_SOURCESDIRECTORY/build/android-uitest-wait-systemui.sh
